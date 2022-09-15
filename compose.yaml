@@ -1,0 +1,14 @@
+services:
+  refinery:
+    image: honeycombio/refinery:1.16.0
+    container_name: refinery
+    environment:
+      REFINERY_HONEYCOMB_API_KEY: API_KEY_HERE
+      REFINERY_QUERY_AUTH_TOKEN: MAKE_UP_A_TOKEN_HERE
+    volumes:
+      - type: bind
+        source: ./conf
+        target: /etc/refinery
+        read_only: true
+    ports:
+      - 8080:8080
